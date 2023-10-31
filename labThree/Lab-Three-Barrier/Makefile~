@@ -1,0 +1,16 @@
+CC=g++
+CFLAGS= -std=c++11 -pthread -I -Wall
+ALL_FILEES=Barrier.o main.o Semaphore.o Barrier.h Semaphore.h
+DEBUGFLAGS = -g -O0
+
+
+%.o: %.cpp
+	$(CC) -c -o $@ $< $(CFLAGS) $(DEBUGFLAGS)
+
+ALL: $(ALL_FILES)
+	$(CC) -o main $(ALL_FILES) $(CFLAGS) $(DEBUGFLAGS) 
+
+DEBUG: ALL
+
+CLEAN:
+	rm *.o
