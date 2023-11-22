@@ -1,4 +1,5 @@
 #include "Semaphore.h"
+
 /*! \class Semaphore
     \brief A Semaphore Implementation
 
@@ -6,30 +7,32 @@
 
 */
 
-
-
-
-void Semaphore::Wait()
-{
-      std::unique_lock< std::mutex > lock(m_mutex);
-      m_condition.wait(lock,[&]()->bool{ return m_uiCount>0; });
-      --m_uiCount;
+// Function to wait on the semaphore
+void Semaphore::Wait() {
+    std::unique_lock<std::mutex> lock(m_mutex);
+    m_condition.wait(lock, [&]()->bool { return m_uiCount > 0; });
+    --m_uiCount;
 }
 
-template< typename R,typename P >
-bool Semaphore::Wait(const std::chrono::duration<R,P>& crRelTime)
-{
-      std::unique_lock< std::mutex > lock(m_mutex);
-      if (!m_condition.wait_for(lock,crRelTime,[&]()->bool{ return m_uiCount>0; })){
-	  return false;
-      }
-      --m_uiCount;
-      return true;
+// Function to wait on the semaphore with a timeout
+template <typename R, typename P>
+bool Semaphore::Wait(const std::chrono::duration<R, P>& crRelTime) {
+    std::unique_lock<std::mutex> lock(m_mutex);
+    if (!m_condition.wait_for(lock, crRelTime, [&]()->bool { return m_uiCount > 0; })) {
+        return false;
+    }
+    --m_uiCount;
+    return true;
 }
 
-void Semaphore::Signal()
-{
-      std::unique_lock< std::mutex > lock(m_mutex);
-      ++m_uiCount;
-      m_condition.notify_one();
+// Function to signal (release) the semaphore
+void Semaphore::Signal() {
+    std::unique_lock<std::mutex> lock(m_mutex);
+    ++m_uiCount;
+    m_condition.notify_one();
 }
+
+// Function to get the current count of the semaphore
+// int Semaphore::getCount() {
+//     return m_uiCount;
+// }
