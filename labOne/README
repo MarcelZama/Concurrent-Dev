@@ -1,10 +1,55 @@
-The README file is a text file that explains what a project is.
-It should contain information on
+Lab One Mutual Exclusion:
+This Project generates two executable files "helloThreads" and "mutualEx"
+helloThreads :demonstrates the use of a semaphore for synchronisation between two threads (threadOne and threadTwo).
+mutualEx: demonstrates the use of a semaphore for synchronisation purposes too but in this case we demonstrate it with the help of a shared variable witch is being written on by 2 threads without any of the threads writing to an older or newer version of the shared variable.
 
-1. Project Licence
-2. Authors of Project
-3. How to install project
-4. List of any required Libraries, platform issues, etc.
-5. TO DO section listing items that need to be completed (errors, missing features etc.)
-6. List of files and what they contain
-7. Any other relevent information
+Author:
+Name: Marcel Zama
+College Id: C00260146
+Date 6/10/2023
+
+Licence:
+
+This project is safeguarded by the GNU General Public License (GPL) to promote the principles of open-source software and ensure that its benefits and freedoms are extended to all users.
+
+See Licence for more details.
+
+Installation:
+
+1. Begin by installing GCC on your system.
+2. Proceed to install Make for efficient project building.
+3. Ensure that the pthread library is included in your system's library path.
+
+Now, follow these steps in your terminal:
+
+1. Open the terminal application.
+2. Navigate to the specified folder.
+
+For building the executable:
+
+1. Execute the command "make" inside the terminal to construct the final executable.
+
+For running the executable:/Applications/Discord.app
+
+1.Employ the shell command ./ followed by the executable's name. Or double-click on it inside the directory folder.
+
+Requirements:
+
+A C++ compiler is required for executing the project.
+
+This project is not specific to any platforms, should work on any platforms if the above requirement is fallowed.
+
+Files:
+
+Makefile - MakeFile processes and combines all the compiled code into an executable
+helloThreads.cpp - his C++ code demonstrates the use of a semaphore for synchronization between two threads (threadOne and threadTwo).
+mutualEx.cpp - This C++ code demonstrates the implementation of mutual exclusion using semaphores. It involves multiple threads updating a shared variable while ensuring that only one thread can access the critical section at a time.
+Semaphore.cpp - This code defines a C++ class named Semaphore that implements a semaphore using C++11 features such as std::mutex and std::condition_variable.
+Semaphore.h - This is the header file (Semaphore.h) for a C++ class named Semaphore, which implements a semaphore using C++11 features such as std::mutex and std::condition_variable. 
+LICENSE.rtf - GNU GENERAL PUBLIC LICENSE
+
+TO DO:
+
+
+
+
