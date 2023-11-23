@@ -2,33 +2,42 @@
 #include <thread>
 #include <vector>
 
-/*! displays the first function in the barrier being executed */
-void task(std::shared_ptr<Barrier> barrierObj){
+// Name: Marcel Zama
+// College ID: C00260146
+// Date: 10/10/2023
+// Check Licence file for Licence details
 
-  std::cout << "first " << std::endl;
-  barrierObj->waitForAll();
-  std::cout << "second" << std::endl;
+/*! 
+    \brief Displays the first function in the barrier being executed 
+*/
+void task(std::shared_ptr<Barrier> barrierObj) {
+    std::cout << "first " << std::endl;
+
+    // Wait for all threads to reach the barrier
+    barrierObj->waitForAll();
+
+    std::cout << "second" << std::endl;
 }
 
+int main(void) {
+    // An array of threads
+    std::vector<std::thread> threadArray(5);
 
+    // Pointer to the barrier object
+    std::shared_ptr<Barrier> barrierObj(new Barrier);
 
+    // Set the count for synchronization
+    barrierObj->setCount(5);
 
-int main(void){
+    // Launch threads
+    for (int i = 0; i < threadArray.size(); i++) {
+        threadArray[i] = std::thread(task, barrierObj);
+    }
 
-  /*!< An array of threads*/
-  std::vector<std::thread> threadArray(5);
-  /*!< Pointer to barrier object*/
-  std::shared_ptr<Barrier> barrierObj( new Barrier);
+    // Wait for all threads to finish
+    for (int i = 0; i < threadArray.size(); i++) {
+        threadArray[i].join();
+    }
 
-  barrierObj->setCount(5);
-
-  for(int i=0; i < threadArray.size(); i++){
-    threadArray[i]=std::thread(task,barrierObj);
-  }
-
-  for(int i = 0; i < threadArray.size(); i++){
-    threadArray[i].join();
-  }
-  
-  return 0;
+    return 0;
 }

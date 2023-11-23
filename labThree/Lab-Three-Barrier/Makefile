@@ -1,24 +1,29 @@
-#Lab 3
-#Marcel Zama
-#GPL-3 licence
+# Name: Marcel Zama
+# College ID: C00260146
+# Date : 14/10/2023
 
+# Compiler and flags
 CC=g++
-CFLAGS=-std=c++11 -pthread -Wall
-BARRIER_FILES=main.o Semaphore.o Barrier.o
+CFLAGS=-std=c++11 -pthread -I. -Wall
 
-This rule specifies that each .o file depends on a .cpp file of the same name
+# Source files
+SOURCE_FILES=main.cpp Semaphore.cpp Barrier.cpp
+
+# Rule to build object files from source files
 %.o: %.cpp
-    $(CC) -c -o $@ $< $(CFLAGS)
+	$(CC) -c -o $@ $< $(CFLAGS) $(DEBUGFLAGS)
 
-Build the 'RELEASE' executable from the source files in $(BARRIER_FILES)
-RELEASE: $(BARRIER_FILES)
-    $(CC) -o main $(BARRIER_FILES) $(CFLAGS)
+# Our main build rule
+RELEASE: $(SOURCE_FILES:.cpp=.o)
+	$(CC) -o main $^ $(CFLAGS) $(DEBUGFLAGS)
 
-Build the 'DEBUG' executable from the source files in $(BARRIER_FILES) with debugging flags
-DEBUG: CFLAGS += -g -O0
-DEBUG: $(BARRIER_FILES)
-    $(CC) -o main $(BARRIER_FILES) $(CFLAGS)
+# Set Debug Flags & Build Debug Build
+DEBUG: DEBUGFLAGS = -g -O0
 
-Define a target to remove used .o files that are no longer needed
+# Call RELEASE rule with the Debug Flags as the second step of the debug rule
+DEBUG: RELEASE
+
+# Remove used .o files that are no longer needed
 CLEAN:
-    rm *.o
+	rm -f *.o
+
