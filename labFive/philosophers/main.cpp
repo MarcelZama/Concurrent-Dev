@@ -12,7 +12,11 @@ const int EATTIME = 5;
 std::vector<Semaphore> forks(COUNT);
 std::vector<std::string> philosopherStates(COUNT, "Thinking");
 
-// Function to simulate the philosopher thinking
+/**
+ * @brief Function to simulate the philosopher thinking
+ * 
+ * @param myID The ID of the philosopher
+ */
 void think(int myID) {
     int seconds = rand() % THINKTIME + 1;
     std::cout << "Philosopher " << myID << " is thinking! " << std::endl;
@@ -20,7 +24,11 @@ void think(int myID) {
     sleep(seconds);
 }
 
-// Function to simulate a philosopher picking up forks
+/**
+ * @brief Function to simulate a philosopher picking up forks
+ * 
+ * @param philID The ID of the philosopher
+ */
 void get_forks(int philID) {
     forks[philID].Wait();
     forks[(philID + 1) % COUNT].Wait();
@@ -31,7 +39,11 @@ void get_forks(int philID) {
     std::cout << philID << " is holding forks! " << std::endl;
 }
 
-// Function to simulate a philosopher putting down forks
+/**
+ * @brief Function to simulate a philosopher putting down forks
+ * 
+ * @param philID The ID of the philosopher
+ */
 void put_forks(int philID) {
     forks[philID].Signal();
     forks[(philID + 1) % COUNT].Signal();
@@ -42,7 +54,11 @@ void put_forks(int philID) {
     std::cout << philID << " put down forks! " << std::endl;
 }
 
-// Function to simulate the philosopher eating
+/**
+ * @brief Function to simulate the philosopher eating
+ * 
+ * @param myID The ID of the philosopher
+ */
 void eat(int myID) {
     int seconds = rand() % EATTIME + 1;
     std::cout << "Philosopher " << myID << " is eating! " << std::endl;
@@ -50,7 +66,11 @@ void eat(int myID) {
     sleep(seconds);
 }
 
-// Function to represent the life cycle of a philosopher
+/**
+ * @brief Function to represent the life cycle of a philosopher
+ * 
+ * @param id The ID of the philosopher
+ */
 void philosopher(int id) {
     while (true) {
         think(id);
@@ -60,6 +80,11 @@ void philosopher(int id) {
     }
 }
 
+/**
+ * @brief Main function
+ * 
+ * @return 0 upon successful execution
+ */
 int main(void) {
     srand(time(NULL)); // Initialize random seed:
 
