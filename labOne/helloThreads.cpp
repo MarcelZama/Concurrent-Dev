@@ -3,11 +3,13 @@
 #include <thread>
 #include <unistd.h>
 
+//Author: Joseph Kehoe
+//Edited by:
 //Name: Marcel Zama
 //College ID: C00260146
-//Date: 04/10/2023
-//Summary: This C++ code demonstrates the use of a semaphore for synchronization between two threads (threadOne and threadTwo).
+//Date: 14/11/2023
 //License: GPL-3.0 (See LICENSE text for the full LICENSE)
+//GitHub Link:https://github.com/MarcelZama/Concurrent-Dev/tree/main
 
 /*! \file
     \brief Main program to demonstrate semaphore usage between two threads.
