@@ -1,0 +1,85 @@
+\doxysection{main.\+cpp}
+\label{main_8cpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}Semaphore.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdlib.h>}\ \ \ \ \ \textcolor{comment}{/*\ srand,\ rand\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <time.h>}\ \ \ \ \ \ \ \textcolor{comment}{/*\ time\ */}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ COUNT\ =\ 5;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ THINKTIME\ =\ 3;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ EATTIME\ =\ 5;}
+\DoxyCodeLine{00012\ std::vector<Semaphore>\ forks(COUNT);}
+\DoxyCodeLine{00013\ std::vector<std::string>\ philosopherStates(COUNT,\ \textcolor{stringliteral}{"{}Thinking"{}});}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ think(\textcolor{keywordtype}{int}\ myID)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ seconds\ =\ rand()\ \%\ THINKTIME\ +\ 1;}
+\DoxyCodeLine{00022\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Philosopher\ "{}}\ <<\ myID\ <<\ \textcolor{stringliteral}{"{}\ is\ thinking!\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00023\ \ \ \ \ philosopherStates[myID]\ =\ \textcolor{stringliteral}{"{}Thinking"{}};}
+\DoxyCodeLine{00024\ \ \ \ \ sleep(seconds);}
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ get\_forks(\textcolor{keywordtype}{int}\ philID)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ forks[philID].Wait();}
+\DoxyCodeLine{00034\ \ \ \ \ forks[(philID\ +\ 1)\ \%\ COUNT].Wait();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ philosopherStates[philID]\ =\ \textcolor{stringliteral}{"{}Holding\ Forks"{}};}
+\DoxyCodeLine{00037\ \ \ \ \ philosopherStates[(philID\ +\ 1)\ \%\ COUNT]\ =\ \textcolor{stringliteral}{"{}Holding\ Forks"{}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ std::cout\ <<\ philID\ <<\ \textcolor{stringliteral}{"{}\ is\ holding\ forks!\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00040\ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ put\_forks(\textcolor{keywordtype}{int}\ philID)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ forks[philID].Signal();}
+\DoxyCodeLine{00049\ \ \ \ \ forks[(philID\ +\ 1)\ \%\ COUNT].Signal();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ philosopherStates[philID]\ =\ \textcolor{stringliteral}{"{}Thinking"{}};}
+\DoxyCodeLine{00052\ \ \ \ \ philosopherStates[(philID\ +\ 1)\ \%\ COUNT]\ =\ \textcolor{stringliteral}{"{}Thinking"{}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ std::cout\ <<\ philID\ <<\ \textcolor{stringliteral}{"{}\ put\ down\ forks!\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00055\ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ eat(\textcolor{keywordtype}{int}\ myID)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ seconds\ =\ rand()\ \%\ EATTIME\ +\ 1;}
+\DoxyCodeLine{00064\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Philosopher\ "{}}\ <<\ myID\ <<\ \textcolor{stringliteral}{"{}\ is\ eating!\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00065\ \ \ \ \ philosopherStates[myID]\ =\ \textcolor{stringliteral}{"{}Eating"{}};}
+\DoxyCodeLine{00066\ \ \ \ \ sleep(seconds);}
+\DoxyCodeLine{00067\ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ philosopher(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ think(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ get\_forks(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ eat(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ put\_forks(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ srand(time(NULL));\ \textcolor{comment}{//\ Initialize\ random\ seed:}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ Initialize\ forks}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{for}\ (Semaphore\&\ s\ :\ forks)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ s.Signal();}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ 0;}
+\DoxyCodeLine{00097\ \ \ \ \ std::vector<std::thread>\ vt(COUNT);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ Launch\ philosopher\ threads}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::thread\&\ t\ :\ vt)\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ t\ =\ std::thread(philosopher,\ \textcolor{keywordtype}{id}++);}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ Join\ the\ philosopher\ threads\ with\ the\ main\ thread}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ v\ :\ vt)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ v.join();}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00110\ \}}
+
+\end{DoxyCode}
