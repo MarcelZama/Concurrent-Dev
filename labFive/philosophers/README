@@ -1,7 +1,8 @@
-Lab Two Rendezvous:
-This C++ program demonstrates one way of resolving the classical problem of synchronisation "The Dining philosophers problem" .
+Lab Five Dining Philosophers:
 
-reusable barrier class that employs the Semaphore Class.
+A program that shows a solution to the Dining Philosophers
+problem. The program output shows the progress of the code and indicate
+who is holding or releasing forks and who is eating and thinking
 
 Author:
 Name: Marcel Zama
@@ -43,8 +44,6 @@ Files:
 
 Makefile - MakeFile processes and combines all the compiled code into an executable
 main.cpp - Main file ,the place where all the magic happens
-Barrier.cpp - An Implementation of a barrier Using Semaphores 
-Barrier.h - Barrier Implementation
 Semaphore.cpp - This code defines a C++ class named Semaphore that implements a semaphore using C++11 features such as std::mutex and std::condition_variable.
 Semaphore.h - This is the header file (Semaphore.h) for a C++ class named Semaphore, which implements a semaphore using C++11 features such as std::mutex and std::condition_variable. 
 LICENSE.rtf - GNU GENERAL PUBLIC LICENSE
