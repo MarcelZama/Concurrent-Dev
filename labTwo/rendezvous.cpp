@@ -3,11 +3,14 @@
 #include <vector>
 #include <iostream>
 
-// Name: Marcel Zama
-// College ID: C00260146
-// Date: 10/10/2023
-// Check License for License details
 
+//Author: Joseph Kehoe
+//Edited by:
+//Name: Marcel Zama
+//College ID: C00260146
+//Date: 14/11/2023
+//License: GPL-3.0 (See LICENSE text for the full LICENSE)
+//GitHub Link:https://github.com/MarcelZama/Concurrent-Dev/tree/main
 /*! \file
     \brief Implementation of a barrier synchronization mechanism using semaphores.
 */
