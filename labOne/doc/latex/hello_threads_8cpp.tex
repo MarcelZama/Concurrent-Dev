@@ -1,0 +1,97 @@
+\doxysection{hello\+Threads.\+cpp File Reference}
+\label{hello_threads_8cpp}\index{helloThreads.cpp@{helloThreads.cpp}}
+
+
+Main program to demonstrate semaphore usage between two threads.  
+
+
+{\ttfamily \#include "{}Semaphore.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ task\+One} (std\+::shared\+\_\+ptr$<$ \textbf{ Semaphore} $>$ the\+Semaphore, int delay)
+\begin{DoxyCompactList}\small\item\em Function to execute task\+One. \end{DoxyCompactList}\item 
+void \textbf{ task\+Two} (std\+::shared\+\_\+ptr$<$ \textbf{ Semaphore} $>$ the\+Semaphore)
+\begin{DoxyCompactList}\small\item\em Function to execute task\+Two. \end{DoxyCompactList}\item 
+int \textbf{ main} (void)
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main program to demonstrate semaphore usage between two threads. 
+
+
+
+Definition in file \textbf{ hello\+Threads.\+cpp}.
+
+
+
+\doxysubsection{Function Documentation}
+\label{hello_threads_8cpp_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{helloThreads.cpp@{helloThreads.cpp}!main@{main}}
+\index{main@{main}!helloThreads.cpp@{helloThreads.cpp}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+Launches two threads (thread\+One and thread\+Two) and demonstrates the use of a semaphore for synchronization.
+
+\begin{DoxyReturn}{Returns}
+0 on successful execution. 
+\end{DoxyReturn}
+$<$ Launch the threads
+
+$<$ Wait for the threads to finish
+
+Definition at line \textbf{ 62} of file \textbf{ hello\+Threads.\+cpp}.
+
+\label{hello_threads_8cpp_a2b4729d561c345111ccab970fe11e229} 
+\index{helloThreads.cpp@{helloThreads.cpp}!taskOne@{taskOne}}
+\index{taskOne@{taskOne}!helloThreads.cpp@{helloThreads.cpp}}
+\doxysubsubsection{taskOne()}
+{\footnotesize\ttfamily void task\+One (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \textbf{ Semaphore} $>$}]{the\+Semaphore,  }\item[{int}]{delay }\end{DoxyParamCaption})}
+
+
+
+Function to execute task\+One. 
+
+This function displays a message after a specified delay and then signals that task\+One has finished.
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Semaphore} & A shared pointer to the semaphore for synchronization. \\
+\hline
+{\em delay} & The delay in seconds before printing the message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 23} of file \textbf{ hello\+Threads.\+cpp}.
+
+\label{hello_threads_8cpp_ae4ea9570be601d182fa473c7ca431852} 
+\index{helloThreads.cpp@{helloThreads.cpp}!taskTwo@{taskTwo}}
+\index{taskTwo@{taskTwo}!helloThreads.cpp@{helloThreads.cpp}}
+\doxysubsubsection{taskTwo()}
+{\footnotesize\ttfamily void task\+Two (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \textbf{ Semaphore} $>$}]{the\+Semaphore }\end{DoxyParamCaption})}
+
+
+
+Function to execute task\+Two. 
+
+This function waits for task\+One to finish, then ensures proper sequencing by waiting for a bit, and finally displays a message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Semaphore} & A shared pointer to the semaphore for synchronization. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 43} of file \textbf{ hello\+Threads.\+cpp}.
+

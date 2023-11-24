@@ -1,0 +1,28 @@
+\doxysection{Semaphore.\+cpp}
+\label{_semaphore_8cpp_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}Semaphore.h"{}}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ Semaphore::Wait()\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ std::unique\_lock<std::mutex>\ lock(m\_mutex);}
+\DoxyCodeLine{00023\ \ \ \ \ m\_condition.wait(lock,\ [\&]()\ -\/>\ \textcolor{keywordtype}{bool}\ \{\ \textcolor{keywordflow}{return}\ m\_uiCount\ >\ 0;\ \});}
+\DoxyCodeLine{00024\ \ \ \ \ -\/-\/m\_uiCount;}
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}\ P>}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{bool}\ Semaphore::Wait(\textcolor{keyword}{const}\ std::chrono::duration<R,\ P>\&\ crRelTime)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ std::unique\_lock<std::mutex>\ lock(m\_mutex);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_condition.wait\_for(lock,\ crRelTime,\ [\&]()\ -\/>\ \textcolor{keywordtype}{bool}\ \{\ return\ m\_uiCount\ >\ 0;\ \}))\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ -\/-\/m\_uiCount;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00044\ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ Semaphore::Signal()\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ std::unique\_lock<std::mutex>\ lock(m\_mutex);}
+\DoxyCodeLine{00055\ \ \ \ \ ++m\_uiCount;}
+\DoxyCodeLine{00056\ \ \ \ \ m\_condition.notify\_one();}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}

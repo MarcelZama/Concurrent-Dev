@@ -1,0 +1,46 @@
+\doxysection{mutual\+Ex.\+cpp}
+\label{mutual_ex_8cpp_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}Semaphore.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ num\_threads\ =\ 100;}
+\DoxyCodeLine{00007\ \textcolor{keywordtype}{int}\ sharedVariable\ =\ 0;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ updateTask(std::shared\_ptr<Semaphore>\ firstSem,\ \textcolor{keywordtype}{int}\ numUpdates)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ firstSem-\/>Wait();\ \textcolor{comment}{//\ The\ first\ thread\ closes\ the\ door\ after\ it.}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numUpdates;\ i++)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ UPDATE\ SHARED\ VARIABLE\ HERE!}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ sharedVariable++;}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ firstSem-\/>Signal();\ \textcolor{comment}{//\ The\ first\ thread\ opens\ the\ door\ and\ exits\ the\ method.}}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ std::vector<std::thread>\ vt(num\_threads);}
+\DoxyCodeLine{00041\ \ \ \ \ std::shared\_ptr<Semaphore>\ aSemaphore(\textcolor{keyword}{new}\ Semaphore);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::thread\&\ t\ :\ vt)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ t\ =\ std::thread(updateTask,\ aSemaphore,\ 1000);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ (num\_threads\ -\/\ 1))\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ aSemaphore-\/>Signal();\ \textcolor{comment}{//\ The\ last\ thread\ signals\ the\ semaphore.}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Launched\ from\ the\ main\(\backslash\)n"{}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ v\ :\ vt)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ v.join();}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ std::cout\ <<\ sharedVariable\ <<\ std::endl;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,58 @@
+\doxysection{hello\+Threads.\+cpp}
+\label{hello_threads_8cpp_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}Semaphore.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//Name:\ Marcel\ Zama}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//College\ ID:\ C00260146}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//Date:\ 04/10/2023}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//Summary:\ This\ C++\ code\ demonstrates\ the\ use\ of\ a\ semaphore\ for\ synchronization\ between\ two\ threads\ (threadOne\ and\ threadTwo).}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//License:\ GPL-\/3.0\ (See\ LICENSE\ text\ for\ the\ full\ LICENSE)}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ taskOne(std::shared\_ptr<Semaphore>\ theSemaphore,\ \textcolor{keywordtype}{int}\ delay)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ sleep(delay);\ \textcolor{comment}{//\ Program\ sleeps\ for\ 'delay'\ seconds.}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}I\ "{}};}
+\DoxyCodeLine{00027\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}must\ "{}};}
+\DoxyCodeLine{00028\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}print\ "{}};}
+\DoxyCodeLine{00029\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}first"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ theSemaphore-\/>Signal();\ \textcolor{comment}{//\ Releases\ the\ lock\ from\ the\ Semaphore}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ Signal\ that\ taskOne\ has\ finished}}
+\DoxyCodeLine{00034\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ taskTwo(std::shared\_ptr<Semaphore>\ theSemaphore)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ Wait\ for\ taskOne\ to\ finish}}
+\DoxyCodeLine{00045\ \ \ \ \ theSemaphore-\/>Wait();\ \textcolor{comment}{//\ Will\ let\ threads\ go\ only\ after\ theSemaphore-\/>Signal();\ from\ taskOne\ will\ be\ executed\ by\ the\ other\ thread.}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ Wait\ for\ a\ bit\ to\ ensure\ proper\ sequencing}}
+\DoxyCodeLine{00048\ \ \ \ \ sleep(1);\ \textcolor{comment}{//\ Program\ sleeps\ for\ one\ second}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}This\ "{}};}
+\DoxyCodeLine{00051\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}will\ "{}};}
+\DoxyCodeLine{00052\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}appear\ "{}};}
+\DoxyCodeLine{00053\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}second"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ std::thread\ threadOne;}
+\DoxyCodeLine{00064\ \ \ \ \ std::thread\ threadTwo;}
+\DoxyCodeLine{00065\ \ \ \ \ std::shared\_ptr<Semaphore>\ sem(\textcolor{keyword}{new}\ Semaphore);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ taskOneDelay\ =\ 5;}
+\DoxyCodeLine{00069\ \ \ \ \ threadOne\ =\ std::thread(taskTwo,\ sem);\ \textcolor{comment}{//\ Task\ Two\ is\ launched\ first}}
+\DoxyCodeLine{00070\ \ \ \ \ threadTwo\ =\ std::thread(taskOne,\ sem,\ taskOneDelay);\ \textcolor{comment}{//\ Task\ One\ is\ launched\ with\ a\ delay}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Launched\ from\ the\ main\(\backslash\)n"{}};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00075\ \ \ \ \ threadOne.join();}
+\DoxyCodeLine{00076\ \ \ \ \ threadTwo.join();}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00079\ \}}
+
+\end{DoxyCode}
