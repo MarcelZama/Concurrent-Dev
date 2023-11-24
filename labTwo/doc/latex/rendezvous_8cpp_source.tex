@@ -1,0 +1,52 @@
+\doxysection{rendezvous.\+cpp}
+\label{rendezvous_8cpp_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}Semaphore.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Name:\ Marcel\ Zama}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ College\ ID:\ C00260146}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Date:\ 10/10/2023}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Check\ License\ for\ License\ details}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ task(std::shared\_ptr<Semaphore>\ mutexSem,\ std::shared\_ptr<Semaphore>\ barrierSem,\ \textcolor{keywordtype}{int}\ *threadCount)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ mutexSem-\/>Wait();\ \textcolor{comment}{//\ The\ first\ thread\ closes\ the\ door\ after\ entering\ the\ function}}
+\DoxyCodeLine{00026\ \ \ \ \ -\/-\/(*threadCount);\ \textcolor{comment}{//\ Counting\ the\ number\ of\ the\ thread\ in\ execution}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{if}\ (*threadCount\ >\ 0)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}First"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ mutexSem-\/>Signal();\ \textcolor{comment}{//\ Let\ other\ threads\ pass\ the\ mutexSem}}
+\DoxyCodeLine{00031\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}First"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ barrierSem-\/>Signal();\ \textcolor{comment}{//\ When\ the\ last\ thread\ comes\ in,\ it\ opens\ the\ barrier\ for\ other\ threads\ to\ continue\ executing.}}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ barrierSem-\/>Wait();\ \textcolor{comment}{//\ Locks\ the\ lock,\ here\ all\ threads\ wait\ for\ the\ last\ thread\ to\ finish\ executing}}
+\DoxyCodeLine{00037\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Second"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00038\ \ \ \ \ barrierSem-\/>Signal();\ \textcolor{comment}{//\ Barriers\ one\ by\ one\ open\ the\ door\ after\ executing\ the\ door}}
+\DoxyCodeLine{00039\ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ std::shared\_ptr<Semaphore>\ mutexSem;}
+\DoxyCodeLine{00049\ \ \ \ \ std::shared\_ptr<Semaphore>\ barrierSem;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ threadCount\ =\ 5;}
+\DoxyCodeLine{00051\ \ \ \ \ mutexSem\ =\ std::make\_shared<Semaphore>(1);}
+\DoxyCodeLine{00052\ \ \ \ \ barrierSem\ =\ std::make\_shared<Semaphore>(0);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ An\ array\ of\ threads}}
+\DoxyCodeLine{00055\ \ \ \ \ std::vector<std::thread>\ threadArray(threadCount);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ threadArray.size();\ i++)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ threadArray[i]\ =\ std::thread(task,\ mutexSem,\ barrierSem,\ \&threadCount);}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ threadArray.size();\ i++)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ threadArray[i].join();}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00066\ \}}
+
+\end{DoxyCode}
