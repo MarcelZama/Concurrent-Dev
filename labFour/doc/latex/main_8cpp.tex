@@ -1,0 +1,85 @@
+\doxysection{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+Main file for the concurrent programming example.  
+
+
+{\ttfamily \#include "{}Barrier.\+h"{}}\newline
+{\ttfamily \#include "{}Event.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ producer} (std\+::shared\+\_\+ptr$<$ Safe\+Buffer$<$ std\+::shared\+\_\+ptr$<$ \textbf{ Event} $>$ $>$ $>$ the\+Buffer, int num\+Loops)
+\begin{DoxyCompactList}\small\item\em Producer function that creates events and adds them to the buffer. \end{DoxyCompactList}\item 
+void \textbf{ consumer} (std\+::shared\+\_\+ptr$<$ Safe\+Buffer$<$ std\+::shared\+\_\+ptr$<$ \textbf{ Event} $>$ $>$ $>$ the\+Buffer, int num\+Loops)
+\begin{DoxyCompactList}\small\item\em Consumer function that takes events from the buffer and consumes them. \end{DoxyCompactList}\item 
+int \textbf{ main} (void)
+\begin{DoxyCompactList}\small\item\em Main function that launches producer and consumer threads. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\label{main_8cpp_aab938108caad0d0e47d6885b5ba2d23a} 
+const int {\bfseries size} = 20
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main file for the concurrent programming example. 
+
+\begin{DoxyAuthor}{Author}
+Joseph Kehoe @editor Marcel Zama 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+14/11/2023 @license GPL-\/3.\+0 (See LICENSE text for the full LICENSE) \doxyref{https\+://github.\+com/\+Marcel\+Zama/\+Concurrent-\/\+Dev/tree/main}{p.}{}
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\label{main_8cpp_acb5c3792f9835a5f49627d723020b7b6} 
+\index{main.cpp@{main.cpp}!consumer@{consumer}}
+\index{consumer@{consumer}!main.cpp@{main.cpp}}
+\doxysubsubsection{consumer()}
+{\footnotesize\ttfamily void consumer (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Safe\+Buffer$<$ std\+::shared\+\_\+ptr$<$ \textbf{ Event} $>$ $>$ $>$}]{the\+Buffer,  }\item[{int}]{num\+Loops }\end{DoxyParamCaption})}
+
+
+
+Consumer function that takes events from the buffer and consumes them. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Buffer} & Shared pointer to the buffer. \\
+\hline
+{\em num\+Loops} & Number of loops for the consumer. \\
+\hline
+\end{DoxyParams}
+\label{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main function that launches producer and consumer threads. 
+
+$<$ Launch the threads\label{main_8cpp_a58449e593b69b4c7314a7515e6091618} 
+\index{main.cpp@{main.cpp}!producer@{producer}}
+\index{producer@{producer}!main.cpp@{main.cpp}}
+\doxysubsubsection{producer()}
+{\footnotesize\ttfamily void producer (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ Safe\+Buffer$<$ std\+::shared\+\_\+ptr$<$ \textbf{ Event} $>$ $>$ $>$}]{the\+Buffer,  }\item[{int}]{num\+Loops }\end{DoxyParamCaption})}
+
+
+
+Producer function that creates events and adds them to the buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the\+Buffer} & Shared pointer to the buffer. \\
+\hline
+{\em num\+Loops} & Number of loops for the producer. \\
+\hline
+\end{DoxyParams}

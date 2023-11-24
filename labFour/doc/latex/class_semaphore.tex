@@ -1,0 +1,95 @@
+\doxysection{Semaphore Class Reference}
+\label{class_semaphore}\index{Semaphore@{Semaphore}}
+
+
+A class representing a semaphore.  
+
+
+
+
+{\ttfamily \#include $<$Semaphore.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Semaphore} (unsigned int ui\+Count=0)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxyref{Semaphore}{p.}{class_semaphore} class. \end{DoxyCompactList}\item 
+\label{class_semaphore_a72aabebf026e3a8b1f3e4d0fa8ee1eda} 
+void {\bfseries Wait} ()
+\begin{DoxyCompactList}\small\item\em Function to wait on the semaphore. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename R , typename P $>$ }\\bool \textbf{ Wait} (const std\+::chrono\+::duration$<$ R, P $>$ \&cr\+Rel\+Time)
+\begin{DoxyCompactList}\small\item\em Function to wait on the semaphore with a timeout. \end{DoxyCompactList}\item 
+\label{class_semaphore_a86f92f738b4486439b296d8e235895f2} 
+void {\bfseries Signal} ()
+\begin{DoxyCompactList}\small\item\em Function to signal (release) the semaphore. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class representing a semaphore. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_semaphore_a0d9290d316636875ca85d1d78950a817} 
+\index{Semaphore@{Semaphore}!Semaphore@{Semaphore}}
+\index{Semaphore@{Semaphore}!Semaphore@{Semaphore}}
+\doxysubsubsection{Semaphore()}
+{\footnotesize\ttfamily Semaphore\+::\+Semaphore (\begin{DoxyParamCaption}\item[{unsigned int}]{ui\+Count = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxyref{Semaphore}{p.}{class_semaphore} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui\+Count} & The initial count of the semaphore. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_semaphore_a7f700173ae86ae623684109066e07656} 
+\index{Semaphore@{Semaphore}!Wait@{Wait}}
+\index{Wait@{Wait}!Semaphore@{Semaphore}}
+\doxysubsubsection{Wait()}
+{\footnotesize\ttfamily template$<$typename R , typename P $>$ \\
+bool Semaphore\+::\+Wait (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::duration$<$ R, P $>$ \&}]{cr\+Rel\+Time }\end{DoxyParamCaption})}
+
+
+
+Function to wait on the semaphore with a timeout. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em R} & The type of the clock\textquotesingle{}s duration. \\
+\hline
+{\em P} & The type of the clock\textquotesingle{}s period. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em cr\+Rel\+Time} & The relative time duration to wait. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the wait is successful; false if the wait times out.
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em R} & Type of duration representing seconds. \\
+\hline
+{\em P} & Type of duration representing periods. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em cr\+Rel\+Time} & Relative time duration to wait. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the semaphore was successfully acquired within the specified time, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Semaphore.\+h}\item 
+\textbf{ Semaphore.\+cpp}\end{DoxyCompactItemize}

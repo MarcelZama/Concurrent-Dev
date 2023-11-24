@@ -25,10 +25,6 @@ Main program to demonstrate semaphore usage between two threads.
 
 
 
-Definition in file \textbf{ hello\+Threads.\+cpp}.
-
-
-
 \doxysubsection{Function Documentation}
 \label{hello_threads_8cpp_a840291bc02cba5474a4cb46a9b9566fe} 
 \index{helloThreads.cpp@{helloThreads.cpp}!main@{main}}
@@ -47,11 +43,7 @@ Launches two threads (thread\+One and thread\+Two) and demonstrates the use of a
 \end{DoxyReturn}
 $<$ Launch the threads
 
-$<$ Wait for the threads to finish
-
-Definition at line \textbf{ 62} of file \textbf{ hello\+Threads.\+cpp}.
-
-\label{hello_threads_8cpp_a2b4729d561c345111ccab970fe11e229} 
+$<$ Wait for the threads to finish\label{hello_threads_8cpp_a2b4729d561c345111ccab970fe11e229} 
 \index{helloThreads.cpp@{helloThreads.cpp}!taskOne@{taskOne}}
 \index{taskOne@{taskOne}!helloThreads.cpp@{helloThreads.cpp}}
 \doxysubsubsection{taskOne()}
@@ -70,10 +62,6 @@ This function displays a message after a specified delay and then signals that t
 {\em delay} & The delay in seconds before printing the message. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line \textbf{ 23} of file \textbf{ hello\+Threads.\+cpp}.
-
 \label{hello_threads_8cpp_ae4ea9570be601d182fa473c7ca431852} 
 \index{helloThreads.cpp@{helloThreads.cpp}!taskTwo@{taskTwo}}
 \index{taskTwo@{taskTwo}!helloThreads.cpp@{helloThreads.cpp}}
@@ -91,7 +79,3 @@ This function waits for task\+One to finish, then ensures proper sequencing by w
 {\em the\+Semaphore} & A shared pointer to the semaphore for synchronization. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line \textbf{ 43} of file \textbf{ hello\+Threads.\+cpp}.
-

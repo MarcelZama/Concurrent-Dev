@@ -1,0 +1,122 @@
+\doxysection{stencil.\+cpp File Reference}
+\label{stencil_8cpp}\index{stencil.cpp@{stencil.cpp}}
+
+
+A program to perform a stencil operation using Open\+MP.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ calc\+Neighbours} (vector$<$ float $>$ const \&in, int index, vector$<$ float $>$ \&out)
+\begin{DoxyCompactList}\small\item\em Calculates the neighbors of a given element in the input vector. \end{DoxyCompactList}\item 
+void \textbf{ stencil} (vector$<$ float $>$ const \&in, vector$<$ float $>$ \&out, function$<$ float(vector$<$ float $>$)$>$ f, int size)
+\begin{DoxyCompactList}\small\item\em Performs the stencil operation on the input vector using a given function. \end{DoxyCompactList}\item 
+float \textbf{ get\+New\+Value} (vector$<$ float $>$ current\+Values)
+\begin{DoxyCompactList}\small\item\em Calculates the average value of a vector. \end{DoxyCompactList}\item 
+int \textbf{ main} (void)
+\begin{DoxyCompactList}\small\item\em Main function to perform a stencil operation and display the results. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\label{stencil_8cpp_a589b8b9bfdf714f736059845d568b597} 
+const int {\bfseries DIM} = 1000
+\item 
+\label{stencil_8cpp_af08413a3ee12cf78b0ddeea71e2648b3} 
+const int {\bfseries SIZE} = 4
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A program to perform a stencil operation using Open\+MP. 
+
+\begin{DoxyAuthor}{Author}
+Joseph Kehoe @editor Marcel Zama 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+14/11/2023 @license GPL-\/3.\+0 (See LICENSE text for the full LICENSE) \doxyref{https\+://github.\+com/\+Marcel\+Zama/\+Concurrent-\/\+Dev/tree/main}{p.}{}
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\label{stencil_8cpp_a16cd13f0a990612823638d179af32bdb} 
+\index{stencil.cpp@{stencil.cpp}!calcNeighbours@{calcNeighbours}}
+\index{calcNeighbours@{calcNeighbours}!stencil.cpp@{stencil.cpp}}
+\doxysubsubsection{calcNeighbours()}
+{\footnotesize\ttfamily int calc\+Neighbours (\begin{DoxyParamCaption}\item[{vector$<$ float $>$ const \&}]{in,  }\item[{int}]{index,  }\item[{vector$<$ float $>$ \&}]{out }\end{DoxyParamCaption})}
+
+
+
+Calculates the neighbors of a given element in the input vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & The input vector. \\
+\hline
+{\em index} & The index of the element for which neighbors are calculated. \\
+\hline
+{\em out} & The vector to store the calculated neighbors. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 for successful calculation. 
+\end{DoxyReturn}
+\label{stencil_8cpp_a6d6a4c1769d6dd5c00d3c0fb296988fa} 
+\index{stencil.cpp@{stencil.cpp}!getNewValue@{getNewValue}}
+\index{getNewValue@{getNewValue}!stencil.cpp@{stencil.cpp}}
+\doxysubsubsection{getNewValue()}
+{\footnotesize\ttfamily float get\+New\+Value (\begin{DoxyParamCaption}\item[{vector$<$ float $>$}]{current\+Values }\end{DoxyParamCaption})}
+
+
+
+Calculates the average value of a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Values} & The vector for which the average value is calculated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The average value of the vector. 
+\end{DoxyReturn}
+\label{stencil_8cpp_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{stencil.cpp@{stencil.cpp}!main@{main}}
+\index{main@{main}!stencil.cpp@{stencil.cpp}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main function to perform a stencil operation and display the results. 
+
+\begin{DoxyReturn}{Returns}
+0 if the program executes successfully. 
+\end{DoxyReturn}
+\label{stencil_8cpp_acef790ec25e4b2af503275c95153adbc} 
+\index{stencil.cpp@{stencil.cpp}!stencil@{stencil}}
+\index{stencil@{stencil}!stencil.cpp@{stencil.cpp}}
+\doxysubsubsection{stencil()}
+{\footnotesize\ttfamily void stencil (\begin{DoxyParamCaption}\item[{vector$<$ float $>$ const \&}]{in,  }\item[{vector$<$ float $>$ \&}]{out,  }\item[{function$<$ float(vector$<$ float $>$)$>$}]{f,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Performs the stencil operation on the input vector using a given function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & The input vector. \\
+\hline
+{\em out} & The output vector. \\
+\hline
+{\em f} & The function to apply for the stencil operation. \\
+\hline
+{\em size} & The size of the stencil. \\
+\hline
+\end{DoxyParams}

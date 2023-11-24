@@ -1,0 +1,47 @@
+\doxysection{Barrier.\+h}
+\label{_barrier_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}Semaphore.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//Author:\ Joseph\ Kehoe}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//Edited\ by:}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//Name:\ Marcel\ Zama}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//College\ ID:\ C00260146}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//Date:\ 14/11/2023}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//License:\ GPL-\/3.0\ (See\ LICENSE\ text\ for\ the\ full\ LICENSE)}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//GitHub\ Link:https://github.com/MarcelZama/Concurrent-\/Dev/tree/main}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }Barrier}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ count;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ threadNum;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ condition;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ std::shared\_ptr<Semaphore>\ mutex;\ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ std::shared\_ptr<Semaphore>\ barrier1;\ }
+\DoxyCodeLine{00026\ \ \ \ \ std::shared\_ptr<Semaphore>\ barrier2;\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ Barrier();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \ \ \string~Barrier();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00036\ \ \ \ \ Barrier(\textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ setCount(\textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ getCount();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ waitForAll();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ Test-\/related\ functions}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ getMutexCount();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{int}\ getEntryCount();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ getExitCount();}
+\DoxyCodeLine{00057\ \};}
+
+\end{DoxyCode}

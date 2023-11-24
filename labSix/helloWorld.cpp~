@@ -1,41 +1,10 @@
-// helloThreads.cpp --- 
-// 
-// Filename: helloThreads.cpp
-// Description: 
-// Author: Joseph
-// Maintainer: 
-// Created: Sun Oct 22 20:36:51 2023 (+0100)
-// Last-Updated: Sun Oct 22 20:37:01 2023 (+0100)
-//           By: Joseph
-//     Update #: 1
-// 
-// 
+//Author: Joseph Kehoe
+//Edited by:
+//Name: Marcel Zama
+//College ID: C00260146
+//Date: 14/11/2023
+//License: GPL-3.0 (See LICENSE text for the full LICENSE)
 
-// Commentary: 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or (at
-// your option) any later version.
-// 
-// This program is distributed in the hope that it will be useful, but
-// WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-// General Public License for more details.
-// 
-// You should have received a copy of the GNU General Public License
-// along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
-// 
-// 
-
-// Code:
 
 // OpenMP program to print Hello World
 // using C language

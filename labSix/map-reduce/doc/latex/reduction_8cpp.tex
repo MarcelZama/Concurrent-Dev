@@ -1,0 +1,131 @@
+\doxysection{reduction.\+cpp File Reference}
+\label{reduction_8cpp}\index{reduction.cpp@{reduction.cpp}}
+
+
+A program to demonstrate parallel reduction using Open\+MP.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$omp.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ get\+\_\+num\+\_\+threads} (void)
+\begin{DoxyCompactList}\small\item\em Gets the number of threads currently running in the parallel region. \end{DoxyCompactList}\item 
+float \textbf{ get\+Serial\+Sum} (vector$<$ int $>$ data)
+\begin{DoxyCompactList}\small\item\em Calculates the sum of elements in a vector using serial execution. \end{DoxyCompactList}\item 
+float \textbf{ get\+Parallel\+Sum} (vector$<$ int $>$ data)
+\begin{DoxyCompactList}\small\item\em Calculates the sum of elements in a vector using parallel execution. \end{DoxyCompactList}\item 
+float \textbf{ get\+Tiled\+Parallel\+Sum} (vector$<$ int $>$ data)
+\begin{DoxyCompactList}\small\item\em Calculates the sum of elements in a vector using tiled parallel execution. \end{DoxyCompactList}\item 
+int \textbf{ main} (void)
+\begin{DoxyCompactList}\small\item\em Main function to demonstrate parallel reduction and display the results. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\label{reduction_8cpp_aa07caf85cdcdc69bc138cb903c343f52} 
+const int {\bfseries LENGTH} = 2000
+\item 
+\label{reduction_8cpp_a761d3655563c63c0b8b291be491291dc} 
+int {\bfseries Num\+Threads} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A program to demonstrate parallel reduction using Open\+MP. 
+
+\begin{DoxyAuthor}{Author}
+Joseph Kehoe @editor Marcel Zama 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+14/11/2023 @license GPL-\/3.\+0 (See LICENSE text for the full LICENSE) \doxyref{https\+://github.\+com/\+Marcel\+Zama/\+Concurrent-\/\+Dev/tree/main}{p.}{}
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\label{reduction_8cpp_ab6b513132f81d9de1ab9578e8a02dfe1} 
+\index{reduction.cpp@{reduction.cpp}!get\_num\_threads@{get\_num\_threads}}
+\index{get\_num\_threads@{get\_num\_threads}!reduction.cpp@{reduction.cpp}}
+\doxysubsubsection{get\_num\_threads()}
+{\footnotesize\ttfamily int get\+\_\+num\+\_\+threads (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets the number of threads currently running in the parallel region. 
+
+\begin{DoxyReturn}{Returns}
+The number of threads. 
+\end{DoxyReturn}
+\label{reduction_8cpp_a64e8554d4459a361ede8620d842ee3e2} 
+\index{reduction.cpp@{reduction.cpp}!getParallelSum@{getParallelSum}}
+\index{getParallelSum@{getParallelSum}!reduction.cpp@{reduction.cpp}}
+\doxysubsubsection{getParallelSum()}
+{\footnotesize\ttfamily float get\+Parallel\+Sum (\begin{DoxyParamCaption}\item[{vector$<$ int $>$}]{data }\end{DoxyParamCaption})}
+
+
+
+Calculates the sum of elements in a vector using parallel execution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The vector to calculate the sum. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sum of elements in the vector. 
+\end{DoxyReturn}
+\label{reduction_8cpp_a31821d51dd484c9a9ef1f0d911920b2d} 
+\index{reduction.cpp@{reduction.cpp}!getSerialSum@{getSerialSum}}
+\index{getSerialSum@{getSerialSum}!reduction.cpp@{reduction.cpp}}
+\doxysubsubsection{getSerialSum()}
+{\footnotesize\ttfamily float get\+Serial\+Sum (\begin{DoxyParamCaption}\item[{vector$<$ int $>$}]{data }\end{DoxyParamCaption})}
+
+
+
+Calculates the sum of elements in a vector using serial execution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The vector to calculate the sum. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sum of elements in the vector. 
+\end{DoxyReturn}
+\label{reduction_8cpp_a6bf77ff2d6c56e766f7dfe63f5286848} 
+\index{reduction.cpp@{reduction.cpp}!getTiledParallelSum@{getTiledParallelSum}}
+\index{getTiledParallelSum@{getTiledParallelSum}!reduction.cpp@{reduction.cpp}}
+\doxysubsubsection{getTiledParallelSum()}
+{\footnotesize\ttfamily float get\+Tiled\+Parallel\+Sum (\begin{DoxyParamCaption}\item[{vector$<$ int $>$}]{data }\end{DoxyParamCaption})}
+
+
+
+Calculates the sum of elements in a vector using tiled parallel execution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The vector to calculate the sum. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sum of elements in the vector. 
+\end{DoxyReturn}
+\label{reduction_8cpp_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{reduction.cpp@{reduction.cpp}!main@{main}}
+\index{main@{main}!reduction.cpp@{reduction.cpp}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main function to demonstrate parallel reduction and display the results. 
+
+\begin{DoxyReturn}{Returns}
+0 if the program executes successfully. 
+\end{DoxyReturn}

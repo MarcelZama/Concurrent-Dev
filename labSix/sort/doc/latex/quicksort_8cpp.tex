@@ -1,0 +1,100 @@
+\doxysection{quicksort.\+cpp File Reference}
+\label{quicksort_8cpp}\index{quicksort.cpp@{quicksort.cpp}}
+
+
+A program to perform parallel quicksort using Open\+MP.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ partition} (vector$<$ int $>$ \&my\+Array, int low, int high)
+\begin{DoxyCompactList}\small\item\em Partitions the vector for quicksort. \end{DoxyCompactList}\item 
+int \textbf{ quicksort} (vector$<$ int $>$ \&my\+Array, int low, int high)
+\begin{DoxyCompactList}\small\item\em Recursive function for parallel quicksort. \end{DoxyCompactList}\item 
+int \textbf{ main} (void)
+\begin{DoxyCompactList}\small\item\em Main function to execute parallel quicksort and display the results. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\label{quicksort_8cpp_aa07caf85cdcdc69bc138cb903c343f52} 
+const int {\bfseries LENGTH} = 2000
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A program to perform parallel quicksort using Open\+MP. 
+
+\begin{DoxyAuthor}{Author}
+Joseph Kehoe @editor Marcel Zama 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+14/11/2023 @license GPL-\/3.\+0 (See LICENSE text for the full LICENSE) \doxyref{https\+://github.\+com/\+Marcel\+Zama/\+Concurrent-\/\+Dev/tree/main}{p.}{}
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\label{quicksort_8cpp_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{quicksort.cpp@{quicksort.cpp}!main@{main}}
+\index{main@{main}!quicksort.cpp@{quicksort.cpp}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main function to execute parallel quicksort and display the results. 
+
+\begin{DoxyReturn}{Returns}
+0 if the program executes successfully. 
+\end{DoxyReturn}
+\label{quicksort_8cpp_add0c75483571528ab72d2557f4a2aeaf} 
+\index{quicksort.cpp@{quicksort.cpp}!partition@{partition}}
+\index{partition@{partition}!quicksort.cpp@{quicksort.cpp}}
+\doxysubsubsection{partition()}
+{\footnotesize\ttfamily int partition (\begin{DoxyParamCaption}\item[{vector$<$ int $>$ \&}]{my\+Array,  }\item[{int}]{low,  }\item[{int}]{high }\end{DoxyParamCaption})}
+
+
+
+Partitions the vector for quicksort. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Array} & The vector to be partitioned. \\
+\hline
+{\em low} & The lower index of the partition. \\
+\hline
+{\em high} & The higher index of the partition. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the pivot element after partitioning. 
+\end{DoxyReturn}
+\label{quicksort_8cpp_aae2561911aebe6763a11df2e104b885a} 
+\index{quicksort.cpp@{quicksort.cpp}!quicksort@{quicksort}}
+\index{quicksort@{quicksort}!quicksort.cpp@{quicksort.cpp}}
+\doxysubsubsection{quicksort()}
+{\footnotesize\ttfamily int quicksort (\begin{DoxyParamCaption}\item[{vector$<$ int $>$ \&}]{my\+Array,  }\item[{int}]{low,  }\item[{int}]{high }\end{DoxyParamCaption})}
+
+
+
+Recursive function for parallel quicksort. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Array} & The vector to be sorted. \\
+\hline
+{\em low} & The lower index of the vector to be sorted. \\
+\hline
+{\em high} & The higher index of the vector to be sorted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 for successful sorting. 
+\end{DoxyReturn}
