@@ -1,22 +1,22 @@
-//Author: Joseph Kehoe
-//Edited by:
-//Name: Marcel Zama
-//College ID: C00260146
-//Date: 14/11/2023
-//License: GPL-3.0 (See LICENSE text for the full LICENSE)
-//GitHub Link:https://github.com/MarcelZama/Concurrent-Dev/tree/main
+/**
+ * @file Semaphore.cpp
+ * @brief Implementation file for the Semaphore class.
+ *
+ * This file contains the implementation of the Semaphore class methods, including waiting on the semaphore,
+ * waiting with a timeout, and signaling (releasing) the semaphore.
+ *
+ * @author Joseph Kehoe
+ * @editor Marcel Zama
+ * @date 14/11/2023
+ * @license GPL-3.0 (See LICENSE text for the full LICENSE)
+ * @link https://github.com/MarcelZama/Concurrent-Dev/tree/main
+ */
 
 #include "Semaphore.h"
 
-/*! \class Semaphore
-    \brief A Semaphore Implementation
-
-    Uses C++11 features such as mutex and condition variables to implement Semaphore
-*/
-
-/*! \fn Wait
-    \brief Function to wait on the semaphore
-*/
+/**
+ * @brief Function to wait on the semaphore.
+ */
 void Semaphore::Wait()
 {
     std::unique_lock<std::mutex> lock(m_mutex);
@@ -24,13 +24,13 @@ void Semaphore::Wait()
     --m_uiCount;
 }
 
-/*! \fn Wait
-    \brief Function to wait on the semaphore with a timeout
-    \tparam R Type of duration representing seconds
-    \tparam P Type of duration representing periods
-    \param crRelTime Relative time duration to wait
-    \return True if the semaphore was successfully acquired within the specified time, false otherwise
-*/
+/**
+ * @brief Function to wait on the semaphore with a timeout.
+ * @tparam R Type of duration representing seconds.
+ * @tparam P Type of duration representing periods.
+ * @param crRelTime Relative time duration to wait.
+ * @return True if the semaphore was successfully acquired within the specified time, false otherwise.
+ */
 template <typename R, typename P>
 bool Semaphore::Wait(const std::chrono::duration<R, P>& crRelTime)
 {
@@ -42,9 +42,9 @@ bool Semaphore::Wait(const std::chrono::duration<R, P>& crRelTime)
     return true;
 }
 
-// \fn Signal
-// \brief Function to signal (release) the semaphore
-
+/**
+ * @brief Function to signal (release) the semaphore.
+ */
 void Semaphore::Signal()
 {
     std::unique_lock<std::mutex> lock(m_mutex);

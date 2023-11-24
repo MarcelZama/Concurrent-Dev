@@ -1,11 +1,13 @@
-
-//Author: Joseph Kehoe
-//Edited by:
-//Name: Marcel Zama
-//College ID: C00260146
-//Date: 14/11/2023
-//License: GPL-3.0 (See LICENSE text for the full LICENSE)
-//GitHub Link:https://github.com/MarcelZama/Concurrent-Dev/tree/main
+/**
+ * @file main.cpp
+ * @brief Main file for the concurrent programming example.
+ *
+ * @author Joseph Kehoe
+ * @editor Marcel Zama
+ * @date 14/11/2023
+ * @license GPL-3.0 (See LICENSE text for the full LICENSE)
+ * @link https://github.com/MarcelZama/Concurrent-Dev/tree/main
+ */
 
 #include "Barrier.h"
 #include "Event.h"
@@ -16,11 +18,11 @@
 static const int num_threads = 100;
 const int size = 20;
 
-/*! \fn producer
-    \brief Creates events and adds them to the buffer
-    \param theBuffer Shared pointer to the buffer
-    \param numLoops Number of loops for the producer
-*/
+/**
+ * @brief Producer function that creates events and adds them to the buffer.
+ * @param theBuffer Shared pointer to the buffer.
+ * @param numLoops Number of loops for the producer.
+ */
 void producer(std::shared_ptr<SafeBuffer<std::shared_ptr<Event>>> theBuffer, int numLoops) {
     for (int i = 0; i < numLoops; ++i) {
         // Produce event and add to the buffer
@@ -29,11 +31,11 @@ void producer(std::shared_ptr<SafeBuffer<std::shared_ptr<Event>>> theBuffer, int
     }
 }
 
-/*! \fn consumer
-    \brief Takes events from the buffer and consumes them
-    \param theBuffer Shared pointer to the buffer
-    \param numLoops Number of loops for the consumer
-*/
+/**
+ * @brief Consumer function that takes events from the buffer and consumes them.
+ * @param theBuffer Shared pointer to the buffer.
+ * @param numLoops Number of loops for the consumer.
+ */
 void consumer(std::shared_ptr<SafeBuffer<std::shared_ptr<Event>>> theBuffer, int numLoops) {
     for (int i = 0; i < numLoops; ++i) {
         // Take event from the buffer and consume it
@@ -42,6 +44,9 @@ void consumer(std::shared_ptr<SafeBuffer<std::shared_ptr<Event>>> theBuffer, int
     }
 }
 
+/**
+ * @brief Main function that launches producer and consumer threads.
+ */
 int main(void) {
     // Create a vector of threads
     std::vector<std::thread> vt(num_threads);

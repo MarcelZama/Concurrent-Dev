@@ -1,58 +1,40 @@
-//Author: Joseph Kehoe
-//Edited by:
-//Name: Marcel Zama
-//College ID: C00260146
-//Date: 14/11/2023
-//License: GPL-3.0 (See LICENSE text for the full LICENSE)
-//GitHub Link:https://github.com/MarcelZama/Concurrent-Dev/tree/main
-
-
-/* SafeBuffer.h --- 
- * 
- * Filename: SafeBuffer.h
- * Description: 
- * Author: Joseph
- * Maintainer: 
- * Created: Tue Jan  8 12:30:23 2019 (+0000)
- * Version: 
- * Package-Requires: ()
- * Last-Updated: Tue Jan  8 12:30:25 2019 (+0000)
- *           By: Joseph
- *     Update #: 1
- * URL: 
- * Doc URL: 
- * Keywords: 
- * Compatibility: 
- * 
+/**
+ * @file SafeBuffer.h
+ * @brief Header file for the Event class.
+ *
+ * This file defines the Event class, which represents an event with a numerical value.
+ * It provides methods to initialize an event and consume it.
+ *
+ * @author Joseph Kehoe
+ * @editor Marcel Zama
+ * @date 14/11/2023
+ * @license GPL-3.0 (See LICENSE text for the full LICENSE)
+ * @link https://github.com/MarcelZama/Concurrent-Dev/tree/main
  */
 
-/* Commentary: 
- * 
- * 
- * 
+#ifndef EVENT_H
+#define EVENT_H
+
+/**
+ * @class Event
+ * @brief A class representing an event with a numerical value.
  */
+class Event {
+private:
+    int number; /**< The numerical value associated with the event. */
 
-/* Change Log:
- * 
- * 
- */
+public:
+    /**
+     * @brief Constructor for the Event class.
+     * @param num The numerical value to initialize the event with.
+     */
+    Event(int num);
 
-/* This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or (at
- * your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
- */
+    /**
+     * @brief Consumes the event.
+     * @return The numerical value of the consumed event.
+     */
+    int consume();
+};
 
-/* Code: */
-
-
-
-/* SafeBuffer.h ends here */
+#endif
