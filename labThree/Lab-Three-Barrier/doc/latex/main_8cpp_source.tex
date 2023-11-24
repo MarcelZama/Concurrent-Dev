@@ -1,0 +1,45 @@
+\doxysection{main.\+cpp}
+\label{main_8cpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}Barrier.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Name:\ Marcel\ Zama}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ College\ ID:\ C00260146}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Date:\ 10/10/2023}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Check\ Licence\ file\ for\ Licence\ details}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ task(std::shared\_ptr<Barrier>\ barrierObj)\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}first\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ Wait\ for\ all\ threads\ to\ reach\ the\ barrier}}
+\DoxyCodeLine{00017\ \ \ \ \ barrierObj-\/>waitForAll();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}second"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00020\ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ An\ array\ of\ threads}}
+\DoxyCodeLine{00024\ \ \ \ \ std::vector<std::thread>\ threadArray(5);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ Pointer\ to\ the\ barrier\ object}}
+\DoxyCodeLine{00027\ \ \ \ \ std::shared\_ptr<Barrier>\ barrierObj(\textcolor{keyword}{new}\ Barrier);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Set\ the\ count\ for\ synchronization}}
+\DoxyCodeLine{00030\ \ \ \ \ barrierObj-\/>setCount(5);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ Launch\ threads}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ threadArray.size();\ i++)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ threadArray[i]\ =\ std::thread(task,\ barrierObj);}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Wait\ for\ all\ threads\ to\ finish}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ threadArray.size();\ i++)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ threadArray[i].join();}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,77 @@
+\doxysection{Barrier.\+cpp}
+\label{_barrier_8cpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}Barrier.h"{}}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Name:\ Marcel\ Zama}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ College\ ID:\ C00260146}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Date:\ 10/10/2023}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Check\ Licence\ file\ for\ Licence\ details}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00016\ Barrier::Barrier()\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ this-\/>count\ =\ 0;}
+\DoxyCodeLine{00018\ \ \ \ \ threadNum\ =\ 0;}
+\DoxyCodeLine{00019\ \ \ \ \ condition\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00020\ \ \ \ \ mutex\ =\ std::make\_shared<Semaphore>(1);}
+\DoxyCodeLine{00021\ \ \ \ \ barrier1\ =\ std::make\_shared<Semaphore>(0);}
+\DoxyCodeLine{00022\ \ \ \ \ barrier2\ =\ std::make\_shared<Semaphore>(1);}
+\DoxyCodeLine{00023\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ Barrier::Barrier(\textcolor{keywordtype}{int}\ count)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ this-\/>count\ =\ count;}
+\DoxyCodeLine{00030\ \ \ \ \ threadNum\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \ \ condition\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00032\ \ \ \ \ mutex\ =\ std::make\_shared<Semaphore>(1);}
+\DoxyCodeLine{00033\ \ \ \ \ barrier1\ =\ std::make\_shared<Semaphore>(0);}
+\DoxyCodeLine{00034\ \ \ \ \ barrier2\ =\ std::make\_shared<Semaphore>(1);}
+\DoxyCodeLine{00035\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00039\ Barrier::\string~Barrier()\ \{}
+\DoxyCodeLine{00040\ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ Barrier::setCount(\textcolor{keywordtype}{int}\ x)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ this-\/>count\ =\ x;}
+\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{int}\ Barrier::getCount()\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>count;}
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{int}\ Barrier::getMutexCount()\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{return}\ mutex-\/>getCount();}
+\DoxyCodeLine{00061\ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{int}\ Barrier::getEntryCount()\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{return}\ barrier1-\/>getCount();}
+\DoxyCodeLine{00068\ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{int}\ Barrier::getExitCount()\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ barrier2-\/>getCount();}
+\DoxyCodeLine{00075\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ Barrier::waitForAll()\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ mutex-\/>Wait();}
+\DoxyCodeLine{00081\ \ \ \ \ threadNum++;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (threadNum\ ==\ count)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ barrier1-\/>Signal();}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ threadNum\ =\ 0;}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ mutex-\/>Signal();}
+\DoxyCodeLine{00089\ \ \ \ \ barrier1-\/>Wait();}
+\DoxyCodeLine{00090\ \ \ \ \ barrier1-\/>Signal();}
+\DoxyCodeLine{00091\ \ \ \ \ mutex-\/>Wait();}
+\DoxyCodeLine{00092\ \ \ \ \ threadNum-\/-\/;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{if}\ (threadNum\ ==\ 0)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ barrier1-\/>Wait();}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ barrier2-\/>Signal();}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ mutex-\/>Signal();}
+\DoxyCodeLine{00100\ \ \ \ \ barrier2-\/>Wait();}
+\DoxyCodeLine{00101\ \ \ \ \ barrier2-\/>Signal();}
+\DoxyCodeLine{00102\ \}}
+
+\end{DoxyCode}

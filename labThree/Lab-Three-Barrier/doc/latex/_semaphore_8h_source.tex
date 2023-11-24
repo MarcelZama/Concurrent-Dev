@@ -1,0 +1,28 @@
+\doxysection{Semaphore.\+h}
+\label{_semaphore_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <condition\_variable>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//Name\ :\ Marcel\ Zama}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//College\ ID\ :\ C00260146}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//Date\ :\ 10/10/2023}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//Check\ Licence\ file\ for\ Licence\ details}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }Semaphore}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_uiCount;\ }
+\DoxyCodeLine{00019\ \ \ \ \ std::mutex\ m\_mutex;\ }
+\DoxyCodeLine{00020\ \ \ \ \ std::condition\_variable\ m\_condition;\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ Semaphore(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ uiCount=0)}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ :\ m\_uiCount(uiCount)\ \{\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ Wait();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ Signal();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ getCount();}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+
+\end{DoxyCode}

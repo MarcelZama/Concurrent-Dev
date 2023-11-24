@@ -1,0 +1,217 @@
+\doxysection{Barrier Class Reference}
+\label{class_barrier}\index{Barrier@{Barrier}}
+
+
+An Implementation of a barrier Using Semaphores.  
+
+
+
+
+{\ttfamily \#include $<$Barrier.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Barrier} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+Barrier} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\textbf{ Barrier} (int count)
+\begin{DoxyCompactList}\small\item\em Constructor with count parameter. \end{DoxyCompactList}\item 
+void \textbf{ set\+Count} (int count)
+\begin{DoxyCompactList}\small\item\em Setter for the count variable. \end{DoxyCompactList}\item 
+int \textbf{ get\+Count} ()
+\begin{DoxyCompactList}\small\item\em Getter for the count variable. \end{DoxyCompactList}\item 
+void \textbf{ wait\+For\+All} ()
+\begin{DoxyCompactList}\small\item\em Function to wait for all threads to reach the barrier. \end{DoxyCompactList}\item 
+int \textbf{ get\+Mutex\+Count} ()
+\begin{DoxyCompactList}\small\item\em Getter for the count of the mutex semaphore. \end{DoxyCompactList}\item 
+int \textbf{ get\+Entry\+Count} ()
+\begin{DoxyCompactList}\small\item\em Getter for the count of the entry barrier semaphore. \end{DoxyCompactList}\item 
+int \textbf{ get\+Exit\+Count} ()
+\begin{DoxyCompactList}\small\item\em Getter for the count of the exit barrier semaphore. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An Implementation of a barrier Using Semaphores. 
+
+A \doxyref{Barrier}{p.}{class_barrier} Implementation.
+
+Uses C++11 features such as mutex and condition variables to implement a barrier using Semaphores with N number of threads
+
+Uses C++11 features such as mutex and condition variables to implement a \doxyref{Barrier}{p.}{class_barrier} class using Semaphores 
+
+Definition at line \textbf{ 15} of file \textbf{ Barrier.\+h}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_barrier_a462a2435e07b6fabc0265011f03310ee} 
+\index{Barrier@{Barrier}!Barrier@{Barrier}}
+\index{Barrier@{Barrier}!Barrier@{Barrier}}
+\doxysubsubsection{Barrier()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Barrier\+::\+Barrier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+\doxyref{Barrier}{p.}{class_barrier} constructor. 
+
+Definition at line \textbf{ 16} of file \textbf{ Barrier.\+cpp}.
+
+\label{class_barrier_a401f40e73302009b305904ffc7825304} 
+\index{Barrier@{Barrier}!````~Barrier@{$\sim$Barrier}}
+\index{````~Barrier@{$\sim$Barrier}!Barrier@{Barrier}}
+\doxysubsubsection{$\sim$Barrier()}
+{\footnotesize\ttfamily Barrier\+::$\sim$\+Barrier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+\doxyref{Barrier}{p.}{class_barrier} destructor. 
+
+Definition at line \textbf{ 39} of file \textbf{ Barrier.\+cpp}.
+
+\label{class_barrier_a68730c862911d37696957056595aa604} 
+\index{Barrier@{Barrier}!Barrier@{Barrier}}
+\index{Barrier@{Barrier}!Barrier@{Barrier}}
+\doxysubsubsection{Barrier()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Barrier\+::\+Barrier (\begin{DoxyParamCaption}\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+
+Constructor with count parameter. 
+
+\doxyref{Barrier}{p.}{class_barrier} constructor with parameter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & The number of threads to synchronize \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 28} of file \textbf{ Barrier.\+cpp}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_barrier_a471bfe5ce54384baa7dbd195ae3a7b30} 
+\index{Barrier@{Barrier}!getCount@{getCount}}
+\index{getCount@{getCount}!Barrier@{Barrier}}
+\doxysubsubsection{getCount()}
+{\footnotesize\ttfamily int Barrier\+::get\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the count variable. 
+
+Gets the current count value.
+
+\begin{DoxyReturn}{Returns}
+The current count value 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 52} of file \textbf{ Barrier.\+cpp}.
+
+\label{class_barrier_a3a1702880e2c517191568e8924d04e6e} 
+\index{Barrier@{Barrier}!getEntryCount@{getEntryCount}}
+\index{getEntryCount@{getEntryCount}!Barrier@{Barrier}}
+\doxysubsubsection{getEntryCount()}
+{\footnotesize\ttfamily int Barrier\+::get\+Entry\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the count of the entry barrier semaphore. 
+
+Gets the count of the entry barrier semaphore.
+
+\begin{DoxyReturn}{Returns}
+The count of the entry barrier semaphore 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 66} of file \textbf{ Barrier.\+cpp}.
+
+\label{class_barrier_a659a7b9bbeea54e3d5c50a46497f5c04} 
+\index{Barrier@{Barrier}!getExitCount@{getExitCount}}
+\index{getExitCount@{getExitCount}!Barrier@{Barrier}}
+\doxysubsubsection{getExitCount()}
+{\footnotesize\ttfamily int Barrier\+::get\+Exit\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the count of the exit barrier semaphore. 
+
+Gets the count of the exit barrier semaphore.
+
+\begin{DoxyReturn}{Returns}
+The count of the exit barrier semaphore 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 73} of file \textbf{ Barrier.\+cpp}.
+
+\label{class_barrier_abd582b0330bd3773db8bd5bdf9a0b49d} 
+\index{Barrier@{Barrier}!getMutexCount@{getMutexCount}}
+\index{getMutexCount@{getMutexCount}!Barrier@{Barrier}}
+\doxysubsubsection{getMutexCount()}
+{\footnotesize\ttfamily int Barrier\+::get\+Mutex\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the count of the mutex semaphore. 
+
+Gets the count of the mutex semaphore.
+
+\begin{DoxyReturn}{Returns}
+The count of the mutex semaphore 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 59} of file \textbf{ Barrier.\+cpp}.
+
+\label{class_barrier_ab999e172844330d8b9a1c13f3766959d} 
+\index{Barrier@{Barrier}!setCount@{setCount}}
+\index{setCount@{setCount}!Barrier@{Barrier}}
+\doxysubsubsection{setCount()}
+{\footnotesize\ttfamily void Barrier\+::set\+Count (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+Setter for the count variable. 
+
+Sets the count value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The new count value \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 45} of file \textbf{ Barrier.\+cpp}.
+
+\label{class_barrier_a59b259f25f6acdc5f943398035d2d87a} 
+\index{Barrier@{Barrier}!waitForAll@{waitForAll}}
+\index{waitForAll@{waitForAll}!Barrier@{Barrier}}
+\doxysubsubsection{waitForAll()}
+{\footnotesize\ttfamily void Barrier\+::wait\+For\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to wait for all threads to reach the barrier. 
+
+Waits for all the threads before starting the second half of the code. 
+
+Definition at line \textbf{ 79} of file \textbf{ Barrier.\+cpp}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Barrier.\+h\item 
+Barrier.\+cpp\end{DoxyCompactItemize}

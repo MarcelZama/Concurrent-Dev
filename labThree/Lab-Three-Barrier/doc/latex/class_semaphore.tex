@@ -1,0 +1,93 @@
+\doxysection{Semaphore Class Reference}
+\label{class_semaphore}\index{Semaphore@{Semaphore}}
+
+
+A \doxyref{Semaphore}{p.}{class_semaphore} Implementation.  
+
+
+
+
+{\ttfamily \#include $<$Semaphore.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Semaphore} (unsigned int ui\+Count=0)
+\item 
+void \textbf{ Wait} ()
+\begin{DoxyCompactList}\small\item\em Closes the thread. \end{DoxyCompactList}\item 
+void \textbf{ Signal} ()
+\begin{DoxyCompactList}\small\item\em Allows a thread to open. \end{DoxyCompactList}\item 
+int \textbf{ get\+Count} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \doxyref{Semaphore}{p.}{class_semaphore} Implementation. 
+
+Uses C++11 features such as mutex and condition variables to implement \doxyref{Semaphore}{p.}{class_semaphore} 
+
+Definition at line \textbf{ 15} of file \textbf{ Semaphore.\+h}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_semaphore_a0d9290d316636875ca85d1d78950a817} 
+\index{Semaphore@{Semaphore}!Semaphore@{Semaphore}}
+\index{Semaphore@{Semaphore}!Semaphore@{Semaphore}}
+\doxysubsubsection{Semaphore()}
+{\footnotesize\ttfamily Semaphore\+::\+Semaphore (\begin{DoxyParamCaption}\item[{unsigned int}]{ui\+Count = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+brief Constructor for \doxyref{Semaphore}{p.}{class_semaphore}
+
+param ui\+Count Initial count for the \doxyref{Semaphore}{p.}{class_semaphore} (default is 0) 
+
+Definition at line \textbf{ 28} of file \textbf{ Semaphore.\+h}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_semaphore_a35a1e2f6b9864691a17e2827aaa3acd6} 
+\index{Semaphore@{Semaphore}!getCount@{getCount}}
+\index{getCount@{getCount}!Semaphore@{Semaphore}}
+\doxysubsubsection{getCount()}
+{\footnotesize\ttfamily int Semaphore\+::get\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \textbf{ 40} of file \textbf{ Semaphore.\+cpp}.
+
+\label{class_semaphore_a86f92f738b4486439b296d8e235895f2} 
+\index{Semaphore@{Semaphore}!Signal@{Signal}}
+\index{Signal@{Signal}!Semaphore@{Semaphore}}
+\doxysubsubsection{Signal()}
+{\footnotesize\ttfamily void Semaphore\+::\+Signal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Allows a thread to open. 
+
+This method is used to implement the Signal operation of a \doxyref{Semaphore}{p.}{class_semaphore}. It increments the count and notifies one waiting thread. 
+
+Definition at line \textbf{ 33} of file \textbf{ Semaphore.\+cpp}.
+
+\label{class_semaphore_a72aabebf026e3a8b1f3e4d0fa8ee1eda} 
+\index{Semaphore@{Semaphore}!Wait@{Wait}}
+\index{Wait@{Wait}!Semaphore@{Semaphore}}
+\doxysubsubsection{Wait()}
+{\footnotesize\ttfamily void Semaphore\+::\+Wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Closes the thread. 
+
+This method is used to implement the Wait operation of a \doxyref{Semaphore}{p.}{class_semaphore}. It waits until the count is greater than 0, and then decrements the count. 
+
+Definition at line \textbf{ 20} of file \textbf{ Semaphore.\+cpp}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Semaphore.\+h\item 
+Semaphore.\+cpp\end{DoxyCompactItemize}
