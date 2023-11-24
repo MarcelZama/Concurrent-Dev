@@ -1,0 +1,73 @@
+\doxysection{rendezvous.\+cpp File Reference}
+\label{rendezvous_8cpp}\index{rendezvous.cpp@{rendezvous.cpp}}
+
+
+Implementation of a barrier synchronization mechanism using semaphores.  
+
+
+{\ttfamily \#include "{}Semaphore.\+h"{}}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ task} (std\+::shared\+\_\+ptr$<$ \textbf{ Semaphore} $>$ mutex\+Sem, std\+::shared\+\_\+ptr$<$ \textbf{ Semaphore} $>$ barrier\+Sem, int $\ast$thread\+Count)
+\begin{DoxyCompactList}\small\item\em Displays the first function in the barrier being executed. \end{DoxyCompactList}\item 
+int \textbf{ main} (void)
+\begin{DoxyCompactList}\small\item\em Main function to demonstrate the barrier synchronization mechanism. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of a barrier synchronization mechanism using semaphores. 
+
+
+
+Definition in file \textbf{ rendezvous.\+cpp}.
+
+
+
+\doxysubsection{Function Documentation}
+\label{rendezvous_8cpp_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{rendezvous.cpp@{rendezvous.cpp}!main@{main}}
+\index{main@{main}!rendezvous.cpp@{rendezvous.cpp}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main function to demonstrate the barrier synchronization mechanism. 
+
+\begin{DoxyReturn}{Returns}
+0 on successful execution. 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 47} of file \textbf{ rendezvous.\+cpp}.
+
+\label{rendezvous_8cpp_aca57f0d83b290865a3c125b3c0b460ce} 
+\index{rendezvous.cpp@{rendezvous.cpp}!task@{task}}
+\index{task@{task}!rendezvous.cpp@{rendezvous.cpp}}
+\doxysubsubsection{task()}
+{\footnotesize\ttfamily void task (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \textbf{ Semaphore} $>$}]{mutex\+Sem,  }\item[{std\+::shared\+\_\+ptr$<$ \textbf{ Semaphore} $>$}]{barrier\+Sem,  }\item[{int $\ast$}]{thread\+Count }\end{DoxyParamCaption})}
+
+
+
+Displays the first function in the barrier being executed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mutex\+Sem} & A semaphore to control access to the critical section. \\
+\hline
+{\em barrier\+Sem} & A semaphore for barrier synchronization. \\
+\hline
+{\em thread\+Count} & A pointer to the count of active threads. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \textbf{ 24} of file \textbf{ rendezvous.\+cpp}.
+
